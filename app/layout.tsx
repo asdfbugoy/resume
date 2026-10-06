@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Titillium_Web } from "next/font/google";
+import { Titillium_Web, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const titillium = Titillium_Web({
@@ -8,15 +8,22 @@ const titillium = Titillium_Web({
   variable: "--font-titillium",
 });
 
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-jb",
+});
+
 export const metadata: Metadata = {
-  title: "Factorio",
+  title: "Francis Samande Declaro — Front-End Engineer",
   description:
-    "Factorio is a game in which you build and maintain factories.",
+    "Front-End Lead / Senior Engineer — 18+ years shipping web products. " +
+    "React, Next.js, TypeScript, Node, and a factory-grade love of production lines.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={titillium.variable}>
+    <html lang="en" className={`${titillium.variable} ${jetbrains.variable}`}>
       <body>{children}</body>
     </html>
   );
