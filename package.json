@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy:gh-pages": "SITE_BASE_PATH=/factorio-clone next build && npx gh-pages -d out",
+    "deploy:gh-pages": "SITE_BASE_PATH=/resume next build && npx gh-pages -d out",
     "deploy:vercel": "next build && npx vercel --prod"
   },
   "dependencies": {

@@ -37,7 +37,7 @@ function machineAddresses(): string[] {
  * deployable to any static host — GitHub Pages, Vercel, S3, ...
  *
  * `basePath` is derived from `SITE_BASE_PATH` (set per host in the deploy
- * scripts, e.g. `SITE_BASE_PATH=/factorio-clone` for GitHub Pages) and applied
+ * scripts, e.g. `SITE_BASE_PATH=/resume` for GitHub Pages) and applied
  * only when non-empty, so the app source never hardcodes a host-specific
  * path and a plain `next build` / `npm run dev` stays root-relative.
  *
