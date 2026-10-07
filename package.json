@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy:gh-pages": "SITE_BASE_PATH=/factorio-clone next build && npx gh-pages -d out",
+    "deploy:vercel": "next build && npx vercel --prod"
   },
   "dependencies": {
     "framer-motion": "^14.0.0",
@@ -16,6 +18,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
+    "gh-pages": "^6.3.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

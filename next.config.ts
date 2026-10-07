@@ -32,8 +32,25 @@ function machineAddresses(): string[] {
   return [...addresses];
 }
 
+/*
+ * Static export (`output: 'export'`) makes the same `next build` artifact
+ * deployable to any static host — GitHub Pages, Vercel, S3, ...
+ *
+ * `basePath` is derived from `SITE_BASE_PATH` (set per host in the deploy
+ * scripts, e.g. `SITE_BASE_PATH=/factorio-clone` for GitHub Pages) and applied
+ * only when non-empty, so the app source never hardcodes a host-specific
+ * path and a plain `next build` / `npm run dev` stays root-relative.
+ *
+ * `images.unoptimized` is required for static export: the `/_next/image`
+ * optimizer route is a Node server route that has no static form.
+ */
+const basePath = process.env.SITE_BASE_PATH ?? "";
+
 const nextConfig: NextConfig = {
   allowedDevOrigins: machineAddresses(),
+  output: "export",
+  images: { unoptimized: true },
+  ...(basePath ? { basePath } : {}),
 };
 
 export default nextConfig;
