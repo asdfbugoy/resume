@@ -3,4 +3,4 @@
 :HL["/resume/_next/static/media/202f69fb654d2e8e-s.p.1v_zr0njtshul.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/resume/_next/static/media/d88fc5ebcdbec3b6-s.p.1xat24709ezgo.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/resume/_next/static/media/fd3f2d7cff5f3729-s.p.3pzoh97cr95ga.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"t2Ozw2HrkxVOfU_w8CwND"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"zO_9lqRTfI9hlc7zmwC9E"}
