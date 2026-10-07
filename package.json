@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy:gh-pages": "SITE_BASE_PATH=/resume next build && touch out/.nojekyll && npx gh-pages -d out",
+    "deploy:gh-pages": "SITE_BASE_PATH=/resume next build && npx gh-pages -d out --nojekyll",
     "deploy:vercel": "next build && npx vercel --prod"
   },
   "dependencies": {
