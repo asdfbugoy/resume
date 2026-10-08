@@ -299,6 +299,21 @@
     box-shadow: 0 0 12px rgba(125, 202, 237, 0.35);
   }
 
+  /* coarse pointers: enforce the 44px touch-target minimum */
+  @media (pointer: coarse) {
+    .button,
+    .button-green {
+      height: 44px;
+      padding: 14px 16px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 14px 16px;
+    }
+  }
+
   /* --- header wordmark (5-layer bevel type) --- */
 
   .header-logo {
@@ -458,8 +473,11 @@
     margin: 0 0 6px;
   }
 
+  /* #b8b8b8 on the #414040 card surface: ~5.1:1, clears WCAG AA (the
+     shared --color-muted at #a6a6a6 measured 4.25:1 here). Scoped to this
+     context only; other muted uses sit on darker surfaces. */
   .role-role {
-    color: var(--color-muted);
+    color: #b8b8b8;
     margin: 0 0 10px;
     font-size: 94%;
   }

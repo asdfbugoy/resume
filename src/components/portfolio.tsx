@@ -15,6 +15,8 @@ import {
   education,
   beltItems,
   type Role,
+  type Skill,
+  type Fluency,
 } from "@/src/data/resume";
 
 /* ---------------------------------------------------------------------------
@@ -232,13 +234,35 @@ function Hero() {
             ▸ {profile.title}
           </motion.p>
 
+          {/* status readouts, same family as the top bar's BELT SPEED line */}
+          <motion.p
+            className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted"
+            style={{ margin: "0 0 4px" }}
+            initial={{ opacity: 0, x: -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: reduced ? 0 : 0.62, duration: reduced ? 0 : 0.5, ease: EASE }}
+          >
+            CURRENTLY // AI FULL-STACK
+          </motion.p>
+
+          <motion.p
+            className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted"
+            style={{ margin: "0 0 20px" }}
+            initial={{ opacity: 0, x: -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: reduced ? 0 : 0.74, duration: reduced ? 0 : 0.5, ease: EASE }}
+          >
+            AFTER HOURS // Dvorak typist · Vim/Neovim · Nix · self-built agents ·
+            Python botter · chess · basketball · Dota 2 · Starcraft 1 & 2
+          </motion.p>
+
           <motion.p
             className="mb-6 mt-0 max-w-[62ch] text-[#cfcaba]"
             initial={{ opacity: 0, y: reduced ? 4 : 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: reduced ? 0 : 0.7, duration: reduced ? 0 : 0.6, ease: EASE }}
+            transition={{ delay: reduced ? 0 : 0.86, duration: reduced ? 0 : 0.6, ease: EASE }}
           >
-            Eighteen years of shipping the web — from Photoshop-to-HTML in a
+            18 years of shipping the web — from Photoshop-to-HTML in a
             Philippine agency in 2007 to leading React / Next.js front-ends in
             Singapore today. I build interfaces the way Factorio builds factories:
             small parts, chained together, running at full belt speed.
@@ -298,15 +322,33 @@ function Hero() {
  * Skills
  * ------------------------------------------------------------------------ */
 
-function SkillRow({ name, years }: { name: string; years: number }) {
+/* Bar width + label per fluency rank, for modern daily tools */
+const FLUENCY: Record<Fluency, { label: string; pct: number }> = {
+  daily: { label: "daily driver", pct: 100 },
+  fluent: { label: "fluent", pct: 75 },
+  working: { label: "working", pct: 50 },
+};
+
+function SkillRow({ name, years, fluency }: Skill) {
   const reduced = useReducedMotion();
-  const pct = Math.max((years / profile.yearsTotal) * 100, 6);
+  const pct =
+    years != null
+      ? Math.max((years / profile.yearsTotal) * 100, 6)
+      : fluency
+        ? FLUENCY[fluency].pct
+        : 0;
+  const label =
+    years != null
+      ? `${years} ${years === 1 ? "yr" : "yrs"}`
+      : fluency
+        ? FLUENCY[fluency].label
+        : "";
   return (
     <div className="mb-3.5 last:mb-0">
       <div className="mb-1.5 flex items-baseline justify-between gap-3">
         <span className="text-ink">{name}</span>
         <span className="font-mono text-[11px] text-muted whitespace-nowrap">
-          {years} {years === 1 ? "yr" : "yrs"}
+          {label}
         </span>
       </div>
       <div className="relative h-3 overflow-hidden border-2 border-[#232223] bg-[#17151a] shadow-[inset_0_0_6px_rgba(0,0,0,0.6)]">
@@ -332,7 +374,7 @@ function SkillsSection() {
       <div className="md:flex">
         <div className="w-full md:w-1/2">
           <div className="panel">
-            <h2>Core stack — years on the line</h2>
+            <h2>Core stack — years on the line · fluency on the daily</h2>
             <div className="panel-inset">
               <Chain stagger={0.06}>
                 {skills.map((s) => (
@@ -630,7 +672,7 @@ export default function Portfolio() {
       {/* header — factorio-style wordmark + nav */}
       <header>
         <div className="mx-auto my-8 flex-wrap items-center gap-4 max-w-[1200px] px-4 lg:flex">
-          <a className="header-logo" href="#about" style={{ width: "auto" }} aria-label="Home">
+          <a className="header-logo" href="#about" style={{ width: "auto" }}>
             <span className="wordmark">
               francis<span className="text-green">.declaro</span>
             </span>

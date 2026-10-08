@@ -14,11 +14,22 @@ const jetbrains = JetBrains_Mono({
   variable: "--font-jb",
 });
 
+const description =
+  "Front-End Lead / Senior Engineer — 18 years of shipping the web. " +
+  "React, Next.js, TypeScript, Node, and a factory-grade love of production lines.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://asdfbugoy.github.io/resume"),
   title: "Francis Samande Declaro — Front-End Engineer",
-  description:
-    "Front-End Lead / Senior Engineer — 18+ years shipping web products. " +
-    "React, Next.js, TypeScript, Node, and a factory-grade love of production lines.",
+  description,
+  openGraph: {
+    title: "Francis Samande Declaro — Front-End Engineer",
+    description,
+    images: ["/og-image.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -12,26 +12,30 @@ export const profile = {
   yearsTotal: 18,
 };
 
+/* Modern daily tools read on a fluency scale; legacy tools keep the years scale. */
+export type Fluency = "daily" | "fluent" | "working";
+
 export type Skill = {
   name: string;
-  years: number;
+  years?: number;
+  fluency?: Fluency;
 };
 
 export const skills: Skill[] = [
   { name: "Javascript / JQuery", years: 18 },
   { name: "HTML / CSS3 / SASS / Bootstrap", years: 18 },
   { name: "PHP / Symfony / CakePHP / MySQL", years: 8 },
-  { name: "React / Create React App / Mobx State Tree", years: 6 },
-  { name: "Vite + React, MUI, Redux, RTK, Styled Components, React Forms", years: 5 },
+  { name: "React / Create React App / Mobx State Tree", fluency: "fluent" },
+  { name: "Vite + React, MUI, Redux, RTK, Styled Components, React Forms", fluency: "fluent" },
   { name: "AWS, CI/CD", years: 5 },
   { name: "RequireJS / Kendo UI", years: 4 },
   { name: "Outsystems", years: 4 },
-  { name: "NodeJS / Express / MongoDB / Webpack", years: 2 },
+  { name: "NodeJS / Express / MongoDB / Webpack", fluency: "working" },
   { name: "Vue / Vuex / Cordova / TailwindCSS", years: 1.5 },
-  { name: "React + D3.js, ApexCharts, Charts", years: 1 },
-  { name: "Next.js, TailwindCSS, TypeScript", years: 0.5 },
-  { name: "Java Spring Boot, MySQL", years: 0.5 },
-  { name: "AI Prompts, GenAI, CoPilot", years: 0.5 },
+  { name: "React + D3.js, ApexCharts, Charts", fluency: "fluent" },
+  { name: "Next.js, TailwindCSS, TypeScript", fluency: "daily" },
+  { name: "Java Spring Boot, MySQL", fluency: "working" },
+  { name: "AI Prompts, GenAI, CoPilot", fluency: "daily" },
 ];
 
 export const tools: string[] = [
@@ -248,11 +252,6 @@ export const education: Education[] = [
     school: "De La Salle, Dasmarinas Cavite, PH",
     degree: "BS Computer Science",
     dates: "Jun 2001 — Mar 2005",
-  },
-  {
-    school: "Colegio San Agustin, Makati, PH",
-    degree: "Elementary & High School",
-    dates: "Jun 1991 — Mar 2001",
   },
 ];
 
