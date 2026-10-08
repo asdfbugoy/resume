@@ -38,6 +38,17 @@ export const skills: Skill[] = [
   { name: "AI Prompts, GenAI, CoPilot", fluency: "daily" },
 ];
 
+/* The home machine — expands on the hero's AFTER HOURS line */
+export const tooling: string[] = [
+  "Nix (darwin / homebrew / home-manager)",
+  "Dotfiles",
+  "Neovim",
+  "WezTerm",
+  "Firstmate",
+  "Pi coding agent",
+  "Herdr",
+];
+
 export const tools: string[] = [
   "VS Code",
   "XCode",

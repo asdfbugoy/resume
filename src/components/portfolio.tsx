@@ -9,6 +9,7 @@ import {
 import {
   profile,
   skills,
+  tooling,
   tools,
   experience,
   archive,
@@ -408,6 +409,31 @@ function SkillsSection() {
 }
 
 /* ---------------------------------------------------------------------------
+ * Tooling
+ * ------------------------------------------------------------------------ */
+
+function ToolingSection() {
+  return (
+    <section className="relative my-7 md:my-10" id="tooling" aria-label="Tooling">
+      <SectionHead index="02" label="tooling" title="Tooling" />
+      <div className="panel">
+        <div className="panel-inset">
+          <Chain className="flex flex-wrap gap-2.5" stagger={0.06}>
+            {tooling.map((t) => (
+              <Part key={t}>
+                <span className="border border-[#3a3738] rounded-[2px] bg-black/30 px-1.75 py-0.5 font-mono text-[10.5px] tracking-[0.04em] text-muted whitespace-nowrap">
+                  {t}
+                </span>
+              </Part>
+            ))}
+          </Chain>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------------------------------------------------------------------
  * Experience
  * ------------------------------------------------------------------------ */
 
@@ -471,7 +497,7 @@ function ExperienceSection() {
   const reduced = useReducedMotion();
   return (
     <section className="relative my-7 md:my-10" id="experience" aria-label="Experience">
-      <SectionHead index="02" label="experience" title="Assembly line — recent output" />
+      <SectionHead index="03" label="experience" title="Assembly line — recent output" />
       <div className="panel">
         <div className="panel-inset">
           <div className="relative pl-7">
@@ -521,7 +547,7 @@ function ExperienceSection() {
 function EducationSection() {
   return (
     <section className="relative my-7 md:my-10" id="education" aria-label="Education">
-      <SectionHead index="03" label="education" title="Foundry" />
+      <SectionHead index="04" label="education" title="Foundry" />
       <div className="md:flex">
         {education.map((e, i) => (
           <div key={e.school} className={`w-full${i > 0 ? " md:ml-3.5" : ""} md:w-1/2`}>
@@ -545,7 +571,7 @@ function ContactSection() {
   const reduced = useReducedMotion();
   return (
     <section className="relative my-7 md:my-10" id="contact" aria-label="Contact">
-      <SectionHead index="04" label="contact" title="Open a delivery route" />
+      <SectionHead index="05" label="contact" title="Open a delivery route" />
       <div className="panel">
         <div className="panel-inset">
           <div className="flex flex-wrap items-center gap-3">
@@ -696,6 +722,7 @@ export default function Portfolio() {
       <main className="mx-auto w-[1200px] max-w-full px-4">
         <Hero />
         <SkillsSection />
+        <ToolingSection />
         <ExperienceSection />
         <EducationSection />
         <ContactSection />
