@@ -415,8 +415,10 @@ function RoleCard({ role, delay = 0 }: { role: Role; delay?: number }) {
   const reduced = useReducedMotion();
   return (
     <Part className="role-card" delay={delay}>
+      {/* single blinking dot: the Led is the only fill; the wrapper keeps
+          the 12px round shape + machine glow (no solid background) */}
       <span
-        className="absolute -left-[27px] top-3.5 h-3 w-3 rounded-full bg-green shadow-[0_0_10px_var(--color-machine-glow),inset_0_0_3px_rgba(0,0,0,0.5)]"
+        className="absolute -left-[27px] top-3.5 flex h-3 w-3 items-center justify-center rounded-full shadow-[0_0_10px_var(--color-machine-glow),inset_0_0_3px_rgba(0,0,0,0.5)]"
         aria-hidden="true"
       >
         <Led />
